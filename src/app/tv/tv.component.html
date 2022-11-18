@@ -1,0 +1,19 @@
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <div class="brd w-25" style="background-color: #f1f1f1; height: 1px;"></div>
+            <h2 class="text-capitalize my-5">Trending TVs To Watch Right Now</h2>
+            <div class="brd w-75" style="background-color: #f1f1f1; height: 1px;"></div>
+        </div>
+        <div class="col-md-2" *ngFor="let tv of trendingTV">
+            <div class="item position-relative" [routerLink]="['/tvDetails',tv.id]">
+                <img [src]="imgPath + tv.poster_path" alt="" class="w-100">
+                <h5>{{tv.name}}</h5>
+                <div class="layer position-absolute top-0 end-0 bg-info p-3">
+                    {{tv.vote_average}}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

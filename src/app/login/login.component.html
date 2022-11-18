@@ -1,0 +1,50 @@
+<div class="w-75 mx-auto py-5">
+    <form [formGroup]="loginForm" (ngSubmit)="submitRegesteration(loginForm)">
+
+
+
+
+        <div class="my-2">
+            <label id="email">email</label>
+            <input type="text" class="form-control" id="email" formControlName="email">
+
+            <div class="alert alert-danger" *ngIf="loginForm.get('email')?.errors !=null &&
+            loginForm.get('email')?.touched">
+                <p *ngIf="loginForm.get('email')?.errors?.['required']">email required</p>
+                <p *ngIf="loginForm.get('email')?.errors?.['email']">email valid required</p>
+            </div>
+
+        </div>
+        <div class="my-2">
+            <label id="password">password</label>
+            <input type="text" class="form-control" id="password" formControlName="password">
+
+            <div class="alert alert-danger " *ngIf="loginForm.get('password')?.errors !=null &&
+            loginForm.get('password')?.touched">
+                <p *ngIf="loginForm.get('password')?.errors?.['required']">password required</p>
+                <p *ngIf="loginForm.get('password')?.errors?.['pattern']">password incorrect</p>
+            </div>
+        </div>
+
+        <button class="btn btn-info" [disabled]="loginForm.invalid" type="submit">Login</button>
+
+        <div class="alert alert-danger my-5" *ngIf="errors">
+            <P>{{errors}}</P>
+        </div>
+
+<br>
+<br>
+        <div class="alert alert-info" id="here">
+            <strong>Note:</strong> If You Dont Have An Account Please Register At 
+            <a routerLink="/register" id="here" style="font-size: 18px; color:#000;">Here</a>
+          </div>
+
+    </form>
+
+
+
+
+
+
+
+</div>
